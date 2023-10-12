@@ -103,3 +103,12 @@ p {
   flex-grow: 1;
   width: 270px;
 }
+
+.click {
+  transform: scale(105%);
+  transition: transform 80ms ease;
+}
+
+button:hover {
+  background-color: rgb(153, 153, 153);
+}
