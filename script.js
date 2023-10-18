@@ -2,6 +2,9 @@ const numButtons = document.querySelectorAll(".number");
 const operatorButtons = document.querySelectorAll(".operator");
 const output = document.getElementById("output-value");
 const equals = document.getElementById("equals");
+const backspace = document.getElementById("backspace");
+const clear = document.getElementById("clear-button");
+const decimal = document.getElementById("decimal");
 
 let firstOperand = "";
 let operator = "";
@@ -52,3 +55,18 @@ function evaluate(x, y, operator) {
       return x / y;
   }
 }
+
+decimal.addEventListener("click", () => {
+  output.textContent += ".";
+});
+
+backspace.addEventListener("click", () => {
+  output.textContent = output.textContent.substring(
+    0,
+    output.textContent.length - 1
+  );
+});
+
+clear.addEventListener("click", () => {
+  output.textContent = "";
+});
