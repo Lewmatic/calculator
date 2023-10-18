@@ -107,7 +107,16 @@ decimal.addEventListener("click", () => {
   const isLastCharNumeric = !isNaN(parseInt(lastChar));
   const isLastCharOperator = isOperator(lastChar);
 
-  if (isLastCharNumeric || isLastCharOperator) {
+  let currentOperand = "";
+  if (operator) {
+    currentOperand = output.textContent.split(operator).pop();
+  } else {
+    currentOperand = output.textContent;
+  }
+
+  const hasDecimal = currentOperand.includes(".");
+
+  if ((isLastCharNumeric || isLastCharOperator) && !hasDecimal) {
     output.textContent += ".";
   }
 });
